@@ -1,1 +1,45 @@
-This is my test  . 
+
+import java.util.Scanner;
+public class Exercise08_13 {
+	public static int[] locateLargest(int[][] a) //function to find location of largest element in 2d array
+    {
+        int[] loc = {0, 0};
+        for(int i = 0; i < a.length; ++i) {
+            for(int j = 0; j < a[i].length; ++j) {
+                if(a[i][j] > a[loc[0]][loc[1]])//finding location of largest element in 2d array
+                {
+                    loc[0] = i;
+                    loc[1] = j;
+                }
+            }
+        }
+        return loc;//return location
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter number of rows : ");
+        int rows=scanner.nextInt(); //read number of rows
+        System.out.print("Enter number of columns : ");
+        int columns=scanner.nextInt(); //read number of columns
+
+        int[][] a = new int[rows][columns];
+        System.out.println("Enter matrix: ");
+        for(int i = 0; i < rows; ++i) {
+            for(int j = 0; j < columns; ++j) {
+                a[i][j] = scanner.nextInt(); //read matrix
+            }
+        }
+        System.out.println("\nThe entered matrix:");
+        for(int i = 0; i < rows; ++i) {
+            for(int j = 0; j < columns; ++j) {
+                System.out.print("  " + a[i][j]); //display matrix
+            }
+            System.out.println();
+        }
+        int[] loc = locateLargest(a); //function call
+        System.out.println("\nFirst Largest value is located at row " + loc[0] + " and column " + loc[1]); //display location
+    }
+}
+
+ 
